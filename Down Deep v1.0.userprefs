@@ -1,0 +1,13 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../Down Deep v1.01/Assets/Scripts/Floor.cs">
+    <Files>
+      <File FileName="../Down Deep v1.01/Assets/Scripts/GameController.cs" Line="56" Column="15" />
+      <File FileName="../Down Deep v1.01/Assets/Scripts/Floor.cs" Line="64" Column="24" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
