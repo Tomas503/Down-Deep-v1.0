@@ -3,6 +3,8 @@ using System.Collections;
 
 public class FloorCell : MonoBehaviour {
 
+	public IntVector2 coordinates;
+
 	// Use this for initialization
 	void Start () {
 	

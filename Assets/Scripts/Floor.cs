@@ -15,6 +15,8 @@ public class Floor : MonoBehaviour {
 	public FloorCell cellPrefab;
 	private FloorCell[,] cells;
 
+	public IntVector2 size;
+
 
 
 
@@ -43,20 +45,21 @@ public class Floor : MonoBehaviour {
 
 
 	public void Generate () {
-		cells = new FloorCell[sizeX, sizeZ];
-		for (int x = 0; x < sizeX; x++) {
-			for (int z = 0; z < sizeZ; z++) {
-				CreateCell(x, z);
+		cells = new FloorCell[size.x, size.z];
+		for (int x = 0; x < size.x; x++) {
+			for (int z = 0; z < size.z; z++) {
+				CreateCell(new IntVector2(x, z));
 			}
 		}
 	}
 	
-	private void CreateCell (int x, int z) {
+	private void CreateCell (IntVector2 coordinates) {
 		FloorCell newCell = Instantiate(cellPrefab) as FloorCell;
-		cells[x, z] = newCell;
-		newCell.name = "Floor Cell " + x + ", " + z;
+		cells[coordinates.x, coordinates.z] = newCell;
+		newCell.coordinates = coordinates;
+		newCell.name = "Floor Cell " + coordinates.x + ", " + coordinates.z;
 		newCell.transform.parent = transform;
-		newCell.transform.localPosition = new Vector3(x - sizeX * 0.5f + 0.5f, 0f, z - sizeZ * 0.5f + 0.5f);
+		newCell.transform.localPosition = new Vector3(coordinates.x - sizeX * 0.5f + 0.5f, 0f, coordinates.z - size.z * 0.5f + 0.5f);
 	}
 
 	void MakeDownStair(){
