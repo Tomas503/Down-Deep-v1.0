@@ -23,6 +23,9 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (Input.GetKeyDown (KeyCode.Escape)) {
+			RestartGame();
+				}
 		if (destroyThings & floorInstance) {
 			DestroyFloor();
 			needNewFloor = true;
@@ -43,6 +46,12 @@ public class GameController : MonoBehaviour {
 		MakeFloor ();
 		MakePlayer ();
 	}
+	void RestartGame(){
+		DestroyFloor ();
+		Destroy (playerInstance.gameObject);
+
+		BeginGame ();
+		}
 
 	void MakeFloor(){
 		floorInstance = Instantiate (floorPrefab) as Floor;
