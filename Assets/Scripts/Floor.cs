@@ -21,6 +21,10 @@ public class Floor : MonoBehaviour {
 	public FloorPassage passagePrefab;
 	public FloorWall[] wallPrefabs;
 
+	public FloorDoor doorPrefab;
+	
+	[Range(0f, 1f)]
+	public float doorProbability;
 
 	// Use this for initialization
 	void Start () {
@@ -130,9 +134,10 @@ public class Floor : MonoBehaviour {
 	}
 
 	private void CreatePassage (FloorCell cell, FloorCell otherCell, FloorDirection direction) {
-		FloorPassage passage = Instantiate(passagePrefab) as FloorPassage;
+		FloorPassage prefab = Random.value < doorProbability ? doorPrefab : passagePrefab;
+		FloorPassage passage = Instantiate(prefab) as FloorPassage;
 		passage.Initialize(cell, otherCell, direction);
-		passage = Instantiate(passagePrefab) as FloorPassage;
+		passage = Instantiate(prefab) as FloorPassage;
 		passage.Initialize(otherCell, cell, direction.GetOpposite());
 	}
 	

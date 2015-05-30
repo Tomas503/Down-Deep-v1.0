@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\FloorCell.cs" />
      <Compile Include="Assets\Scripts\FloorCellEdge.cs" />
      <Compile Include="Assets\Scripts\FloorDirection.cs" />
+     <Compile Include="Assets\Scripts\FloorDoor.cs" />
      <Compile Include="Assets\Scripts\FloorPassage.cs" />
      <Compile Include="Assets\Scripts\FloorWall.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
