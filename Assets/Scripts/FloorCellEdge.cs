@@ -8,7 +8,7 @@ public abstract class FloorCellEdge : MonoBehaviour {
 	public FloorDirection direction;
 
 
-	public void Initialize (FloorCell cell, FloorCell otherCell, FloorDirection direction) {
+	public virtual void Initialize (FloorCell cell, FloorCell otherCell, FloorDirection direction) {
 		this.cell = cell;
 		this.otherCell = otherCell;
 		this.direction = direction;
