@@ -63,7 +63,11 @@ public class Floor : MonoBehaviour {
 	private void DoNextGenerationStep (List<FloorCell> activeCells) {
 				int currentIndex = activeCells.Count - 1;
 				FloorCell currentCell = activeCells [currentIndex];
-				FloorDirection direction = FloorDirections.RandomValue;
+				if (currentCell.IsFullyInitialized) {
+						activeCells.RemoveAt (currentIndex);
+						return;
+				}
+				FloorDirection direction = currentCell.RandomUninitializedDirection;
 				IntVector2 coordinates = currentCell.coordinates + direction.ToIntVector2 ();
 				if (ContainsCoordinates (coordinates)) {
 						FloorCell neighbor = GetCell (coordinates);
@@ -73,11 +77,11 @@ public class Floor : MonoBehaviour {
 								activeCells.Add (neighbor);
 						} else {
 								CreateWall (currentCell, neighbor, direction);
-								activeCells.RemoveAt (currentIndex);
 						}
-				} else {
+				} 
+				else {
 						CreateWall (currentCell, null, direction);
-						activeCells.RemoveAt (currentIndex);
+						
 				}
 		}
 
