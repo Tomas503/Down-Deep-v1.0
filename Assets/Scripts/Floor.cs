@@ -19,7 +19,7 @@ public class Floor : MonoBehaviour {
 	public IntVector2 size;
 
 	public FloorPassage passagePrefab;
-	public FloorWall wallPrefab;
+	public FloorWall[] wallPrefabs;
 
 
 	// Use this for initialization
@@ -137,10 +137,10 @@ public class Floor : MonoBehaviour {
 	}
 	
 	private void CreateWall (FloorCell cell, FloorCell otherCell, FloorDirection direction) {
-		FloorWall wall = Instantiate(wallPrefab) as FloorWall;
+		FloorWall wall = Instantiate(wallPrefabs[Random.Range(0, wallPrefabs.Length)]) as FloorWall;
 		wall.Initialize(cell, otherCell, direction);
 		if (otherCell != null) {
-			wall = Instantiate(wallPrefab) as FloorWall;
+			wall = Instantiate(wallPrefabs[Random.Range(0, wallPrefabs.Length)]) as FloorWall;
 			wall.Initialize(otherCell, cell, direction.GetOpposite());
 		}
 	}
