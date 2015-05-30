@@ -10,6 +10,10 @@ public class Floor : MonoBehaviour {
 	private Vector3 aheadOfPlayer;
 	private Vector3 behindPlayer;
 
+	public int sizeX, sizeZ;
+
+	public FloorCell cellPrefab;
+	private FloorCell[,] cells;
 
 
 
@@ -35,10 +39,24 @@ public class Floor : MonoBehaviour {
 
 		//GetPlayerPositions ();
 
+	}
+
+
+	public void Generate () {
+		cells = new FloorCell[sizeX, sizeZ];
+		for (int x = 0; x < sizeX; x++) {
+			for (int z = 0; z < sizeZ; z++) {
+				CreateCell(x, z);
+			}
+		}
+	}
 	
-
-
-
+	private void CreateCell (int x, int z) {
+		FloorCell newCell = Instantiate(cellPrefab) as FloorCell;
+		cells[x, z] = newCell;
+		newCell.name = "Floor Cell " + x + ", " + z;
+		newCell.transform.parent = transform;
+		newCell.transform.localPosition = new Vector3(x - sizeX * 0.5f + 0.5f, 0f, z - sizeZ * 0.5f + 0.5f);
 	}
 
 	void MakeDownStair(){

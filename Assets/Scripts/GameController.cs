@@ -55,8 +55,9 @@ public class GameController : MonoBehaviour {
 
 	void MakeFloor(){
 		floorInstance = Instantiate (floorPrefab) as Floor;
-		Color col = Random.Range (0, 2) == 1 ? Color.black : Color.white;
-		floorInstance.GetComponent<MeshRenderer>().material.color = col;
+		floorInstance.Generate ();
+		//Color col = Random.Range (0, 2) == 1 ? Color.black : Color.white;
+		//floorInstance.GetComponent<MeshRenderer>().material.color = col;
 
 
 
