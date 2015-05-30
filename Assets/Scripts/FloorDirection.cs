@@ -31,4 +31,15 @@ public static class FloorDirections {
 	public static IntVector2 ToIntVector2 (this FloorDirection direction) {
 		return vectors[(int)direction];
 	}
+
+	private static FloorDirection[] opposites = {
+		FloorDirection.South,
+		FloorDirection.West,
+		FloorDirection.North,
+		FloorDirection.East
+	};
+	
+	public static FloorDirection GetOpposite (this FloorDirection direction) {
+		return opposites[(int)direction];
+	}
 }

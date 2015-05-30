@@ -5,13 +5,13 @@ public class FloorCell : MonoBehaviour {
 
 	public IntVector2 coordinates;
 
-	// Use this for initialization
-	void Start () {
+	private FloorCellEdge[] edges = new FloorCellEdge[FloorDirections.Count];
 	
+	public FloorCellEdge GetEdge (FloorDirection direction) {
+		return edges[(int)direction];
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
+	public void SetEdge (FloorDirection direction, FloorCellEdge edge) {
+		edges[(int)direction] = edge;
 	}
 }

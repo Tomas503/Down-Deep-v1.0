@@ -18,7 +18,8 @@ public class Floor : MonoBehaviour {
 
 	public IntVector2 size;
 
-
+	public FloorPassage passagePrefab;
+	public FloorWall wallPrefab;
 
 
 	// Use this for initialization
@@ -60,17 +61,26 @@ public class Floor : MonoBehaviour {
 	}
 	
 	private void DoNextGenerationStep (List<FloorCell> activeCells) {
-		int currentIndex = activeCells.Count - 1;
-		FloorCell currentCell = activeCells[currentIndex];
-		FloorDirection direction = FloorDirections.RandomValue;
-		IntVector2 coordinates = currentCell.coordinates + direction.ToIntVector2();
-		if (ContainsCoordinates(coordinates) && GetCell(coordinates) == null) {
-			activeCells.Add(CreateCell(coordinates));
+				int currentIndex = activeCells.Count - 1;
+				FloorCell currentCell = activeCells [currentIndex];
+				FloorDirection direction = FloorDirections.RandomValue;
+				IntVector2 coordinates = currentCell.coordinates + direction.ToIntVector2 ();
+				if (ContainsCoordinates (coordinates)) {
+						FloorCell neighbor = GetCell (coordinates);
+						if (neighbor == null) {
+								neighbor = CreateCell (coordinates);
+								CreatePassage (currentCell, neighbor, direction);
+								activeCells.Add (neighbor);
+						} else {
+								CreateWall (currentCell, neighbor, direction);
+								activeCells.RemoveAt (currentIndex);
+						}
+				} else {
+						CreateWall (currentCell, null, direction);
+						activeCells.RemoveAt (currentIndex);
+				}
 		}
-		else {
-			activeCells.RemoveAt(currentIndex);
-		}
-	}
+
 
 	private FloorCell CreateCell (IntVector2 coordinates) {
 		FloorCell newCell = Instantiate(cellPrefab) as FloorCell;
@@ -113,6 +123,22 @@ public class Floor : MonoBehaviour {
 
 	public FloorCell GetCell (IntVector2 coordinates) {
 		return cells[coordinates.x, coordinates.z];
+	}
+
+	private void CreatePassage (FloorCell cell, FloorCell otherCell, FloorDirection direction) {
+		FloorPassage passage = Instantiate(passagePrefab) as FloorPassage;
+		passage.Initialize(cell, otherCell, direction);
+		passage = Instantiate(passagePrefab) as FloorPassage;
+		passage.Initialize(otherCell, cell, direction.GetOpposite());
+	}
+	
+	private void CreateWall (FloorCell cell, FloorCell otherCell, FloorDirection direction) {
+		FloorWall wall = Instantiate(wallPrefab) as FloorWall;
+		wall.Initialize(cell, otherCell, direction);
+		if (otherCell != null) {
+			wall = Instantiate(wallPrefab) as FloorWall;
+			wall.Initialize(otherCell, cell, direction.GetOpposite());
+		}
 	}
 
 }
