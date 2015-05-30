@@ -1,17 +1,19 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Floor.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/RunAndCrouch.js">
     <Files>
       <File FileName="Assets/Scripts/FloorPassage.cs" Line="4" Column="42" />
       <File FileName="Assets/Scripts/GameController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Floor.cs" Line="14" Column="42" />
+      <File FileName="Assets/Scripts/Floor.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/IntVector2.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/FloorCell.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/FloorDirection.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/FloorCellEdge.cs" Line="11" Column="16" />
+      <File FileName="Assets/Scripts/FloorCellEdge.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/FloorWall.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/FloorDoor.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/FloorRoomSettings.cs" Line="7" Column="46" />
+      <File FileName="Assets/Scripts/FloorRoomSettings.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/FloorRoom.cs" Line="1" Column="1" />
+      <File FileName="Assets/RunAndCrouch.js" Line="21" Column="42" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

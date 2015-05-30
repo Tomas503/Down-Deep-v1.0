@@ -5,11 +5,11 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{38ADB6AA-175E-CB87-731F-086B22280C5B}</ProjectGuid>
+	<ProjectGuid>{6EE238AF-B404-7D52-206A-6B806D98F89E}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
-	<AssemblyName>Assembly-CSharp</AssemblyName>
+	<AssemblyName>Assembly-UnityScript</AssemblyName>
 	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
 	<FileAlignment>512</FileAlignment>
 	<BaseDirectory>Assets</BaseDirectory>
@@ -46,25 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\CharacterMotor.cs" />
-     <Compile Include="Assets\Scripts\DownStairTrigger.cs" />
-     <Compile Include="Assets\Scripts\FPSInputController.cs" />
-     <Compile Include="Assets\Scripts\Floor.cs" />
-     <Compile Include="Assets\Scripts\FloorCell.cs" />
-     <Compile Include="Assets\Scripts\FloorCellEdge.cs" />
-     <Compile Include="Assets\Scripts\FloorDirection.cs" />
-     <Compile Include="Assets\Scripts\FloorDoor.cs" />
-     <Compile Include="Assets\Scripts\FloorPassage.cs" />
-     <Compile Include="Assets\Scripts\FloorRoom.cs" />
-     <Compile Include="Assets\Scripts\FloorRoomSettings.cs" />
-     <Compile Include="Assets\Scripts\FloorWall.cs" />
-     <Compile Include="Assets\Scripts\GameController.cs" />
-     <Compile Include="Assets\Scripts\IntVector2.cs" />
-     <Compile Include="Assets\Scripts\LevelText.cs" />
-     <Compile Include="Assets\Scripts\MouseLook.cs" />
-     <Compile Include="Assets\Scripts\PlatformInputController.cs" />
-     <Compile Include="Assets\Scripts\Player.cs" />
-     <Compile Include="Assets\Scripts\UpStairTrigger.cs" />
+     <Compile Include="Assets\RunAndCrouch.js" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Volumes/Macky/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>

@@ -5,11 +5,11 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{38ADB6AA-175E-CB87-731F-086B22280C5B}</ProjectGuid>
+	<ProjectGuid>{6EE238AF-B404-7D52-206A-6B806D98F89E}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
-	<AssemblyName>Assembly-CSharp</AssemblyName>
+	<AssemblyName>Assembly-UnityScript</AssemblyName>
 	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
 	<FileAlignment>512</FileAlignment>
 	<BaseDirectory>Assets</BaseDirectory>
@@ -46,34 +46,17 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\CharacterMotor.cs" />
-     <Compile Include="Assets\Scripts\DownStairTrigger.cs" />
-     <Compile Include="Assets\Scripts\FPSInputController.cs" />
-     <Compile Include="Assets\Scripts\Floor.cs" />
-     <Compile Include="Assets\Scripts\FloorCell.cs" />
-     <Compile Include="Assets\Scripts\FloorCellEdge.cs" />
-     <Compile Include="Assets\Scripts\FloorDirection.cs" />
-     <Compile Include="Assets\Scripts\FloorDoor.cs" />
-     <Compile Include="Assets\Scripts\FloorPassage.cs" />
-     <Compile Include="Assets\Scripts\FloorRoom.cs" />
-     <Compile Include="Assets\Scripts\FloorRoomSettings.cs" />
-     <Compile Include="Assets\Scripts\FloorWall.cs" />
-     <Compile Include="Assets\Scripts\GameController.cs" />
-     <Compile Include="Assets\Scripts\IntVector2.cs" />
-     <Compile Include="Assets\Scripts\LevelText.cs" />
-     <Compile Include="Assets\Scripts\MouseLook.cs" />
-     <Compile Include="Assets\Scripts\PlatformInputController.cs" />
-     <Compile Include="Assets\Scripts\Player.cs" />
-     <Compile Include="Assets\Scripts\UpStairTrigger.cs" />
+     <Compile Include="Assets\RunAndCrouch.js" />
+ <Reference Include="Assembly-UnityScript-firstpass">
+ <HintPath>/Users/BoredEagle/Desktop/Unity Projects/Down Deep v1.0/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Volumes/Macky/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{CF9B1EA8-DBE8-C50C-A374-284D0356891C}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
-    <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
-      <Project>{D7E51407-0DBF-9B27-192E-B4AB70585676}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
+    <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">
+      <Project>{CF9B1EA8-DBE8-C50C-A374-284D0356891C}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
