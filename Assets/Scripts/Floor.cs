@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Floor : MonoBehaviour {
 
@@ -46,20 +47,39 @@ public class Floor : MonoBehaviour {
 
 	public void Generate () {
 		cells = new FloorCell[size.x, size.z];
-		IntVector2 coordinates = RandomCoordinates;
-		while (ContainsCoordinates(coordinates) && GetCell(coordinates) == null) {
-			CreateCell(coordinates);
-			coordinates += FloorDirections.RandomValue.ToIntVector2();
+		List<FloorCell> activeCells = new List<FloorCell>();
+		DoFirstGenerationStep(activeCells);
+		while (activeCells.Count > 0) {
+			DoNextGenerationStep(activeCells);
 		}
 	}
+
+
+	private void DoFirstGenerationStep (List<FloorCell> activeCells) {
+		activeCells.Add(CreateCell(RandomCoordinates));
+	}
 	
-	private void CreateCell (IntVector2 coordinates) {
+	private void DoNextGenerationStep (List<FloorCell> activeCells) {
+		int currentIndex = activeCells.Count - 1;
+		FloorCell currentCell = activeCells[currentIndex];
+		FloorDirection direction = FloorDirections.RandomValue;
+		IntVector2 coordinates = currentCell.coordinates + direction.ToIntVector2();
+		if (ContainsCoordinates(coordinates) && GetCell(coordinates) == null) {
+			activeCells.Add(CreateCell(coordinates));
+		}
+		else {
+			activeCells.RemoveAt(currentIndex);
+		}
+	}
+
+	private FloorCell CreateCell (IntVector2 coordinates) {
 		FloorCell newCell = Instantiate(cellPrefab) as FloorCell;
 		cells[coordinates.x, coordinates.z] = newCell;
 		newCell.coordinates = coordinates;
 		newCell.name = "Floor Cell " + coordinates.x + ", " + coordinates.z;
 		newCell.transform.parent = transform;
 		newCell.transform.localPosition = new Vector3(coordinates.x - size.x * 0.5f + 0.5f, 0f, coordinates.z - size.z * 0.5f + 0.5f);
+		return newCell;
 	}
 
 	void MakeDownStair(){
