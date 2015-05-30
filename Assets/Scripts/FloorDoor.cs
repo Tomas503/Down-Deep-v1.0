@@ -13,12 +13,18 @@ public class FloorDoor : FloorPassage {
 	}
 	
 	public override void Initialize (FloorCell primary, FloorCell other, FloorDirection direction) {
-		base.Initialize(primary, other, direction);
-		if (OtherSideOfDoor != null) {
-			hinge.localScale = new Vector3(-1f, 1f, 1f);
-			Vector3 p = hinge.localPosition;
-			p.x = -p.x;
-			hinge.localPosition = p;
+				base.Initialize (primary, other, direction);
+				if (OtherSideOfDoor != null) {
+						hinge.localScale = new Vector3 (-1f, 1f, 1f);
+						Vector3 p = hinge.localPosition;
+						p.x = -p.x;
+						hinge.localPosition = p;
+				}
+				for (int i = 0; i < transform.childCount; i++) {
+						Transform child = transform.GetChild (i);
+						if (child != hinge) {
+								child.GetComponent<Renderer> ().material = cell.room.settings.wallMaterial;
+						}
+				}
 		}
-	}
 }

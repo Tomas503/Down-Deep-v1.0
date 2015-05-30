@@ -3,13 +3,10 @@ using System.Collections;
 
 public class FloorWall : FloorCellEdge {
 
-	// Use this for initialization
-	void Start () {
+	public Transform wall;
 	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	public override void Initialize (FloorCell cell, FloorCell otherCell, FloorDirection direction) {
+		base.Initialize(cell, otherCell, direction);
+		wall.GetComponent<Renderer>().material = cell.room.settings.wallMaterial;
 	}
 }
