@@ -53,6 +53,8 @@
      <Compile Include="Assets\Scripts\FloorDirection.cs" />
      <Compile Include="Assets\Scripts\FloorDoor.cs" />
      <Compile Include="Assets\Scripts\FloorPassage.cs" />
+     <Compile Include="Assets\Scripts\FloorRoom.cs" />
+     <Compile Include="Assets\Scripts\FloorRoomSettings.cs" />
      <Compile Include="Assets\Scripts\FloorWall.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\IntVector2.cs" />

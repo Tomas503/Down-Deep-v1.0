@@ -11,7 +11,7 @@ public class Floor : MonoBehaviour {
 	private Vector3 aheadOfPlayer;
 	private Vector3 behindPlayer;
 
-	//public int sizeX, sizeZ;
+	public FloorRoomSettings[] roomSettings;
 
 	public FloorCell cellPrefab;
 	private FloorCell[,] cells;
@@ -61,7 +61,9 @@ public class Floor : MonoBehaviour {
 
 
 	private void DoFirstGenerationStep (List<FloorCell> activeCells) {
-		activeCells.Add(CreateCell(RandomCoordinates));
+		FloorCell newCell = CreateCell(RandomCoordinates);
+		newCell.Initialize(CreateRoom(-1));
+		activeCells.Add(newCell);
 	}
 	
 	private void DoNextGenerationStep (List<FloorCell> activeCells) {
@@ -138,6 +140,12 @@ public class Floor : MonoBehaviour {
 		FloorPassage passage = Instantiate(prefab) as FloorPassage;
 		passage.Initialize(cell, otherCell, direction);
 		passage = Instantiate(prefab) as FloorPassage;
+		if (passage is FloorDoor) {
+			otherCell.Initialize(CreateRoom(cell.room.settingsIndex));
+		}
+		else {
+			otherCell.Initialize(cell.room);
+		}
 		passage.Initialize(otherCell, cell, direction.GetOpposite());
 	}
 	
@@ -148,6 +156,19 @@ public class Floor : MonoBehaviour {
 			wall = Instantiate(wallPrefabs[Random.Range(0, wallPrefabs.Length)]) as FloorWall;
 			wall.Initialize(otherCell, cell, direction.GetOpposite());
 		}
+	}
+
+	private List<FloorRoom> rooms = new List<FloorRoom>();
+	
+	private FloorRoom CreateRoom (int indexToExclude) {
+		FloorRoom newRoom = ScriptableObject.CreateInstance<FloorRoom>();
+		newRoom.settingsIndex = Random.Range(0, roomSettings.Length);
+		if (newRoom.settingsIndex == indexToExclude) {
+			newRoom.settingsIndex = (newRoom.settingsIndex + 1) % roomSettings.Length;
+		}
+		newRoom.settings = roomSettings[newRoom.settingsIndex];
+		rooms.Add(newRoom);
+		return newRoom;
 	}
 
 }

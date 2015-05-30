@@ -38,4 +38,13 @@ public class FloorCell : MonoBehaviour {
 			throw new System.InvalidOperationException("FloorCell has no uninitialized directions left.");
 		}
 	}
+
+	public FloorRoom room;
+	
+	public void Initialize (FloorRoom room) {
+		room.Add(this);
+		transform.GetChild(0).GetComponent<Renderer>().material = room.settings.floorMaterial;
+	}
+
+
 }
