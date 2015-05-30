@@ -46,10 +46,10 @@ public class Floor : MonoBehaviour {
 
 	public void Generate () {
 		cells = new FloorCell[size.x, size.z];
-		for (int x = 0; x < size.x; x++) {
-			for (int z = 0; z < size.z; z++) {
-				CreateCell(new IntVector2(x, z));
-			}
+		IntVector2 coordinates = RandomCoordinates;
+		while (ContainsCoordinates(coordinates) && GetCell(coordinates) == null) {
+			CreateCell(coordinates);
+			coordinates += FloorDirections.RandomValue.ToIntVector2();
 		}
 	}
 	
@@ -81,5 +81,18 @@ public class Floor : MonoBehaviour {
 		aheadOfPlayer = (player.transform.position + player.transform.forward * 5.0f);
 		}
 
+	public IntVector2 RandomCoordinates {
+		get {
+			return new IntVector2(Random.Range(0, size.x), Random.Range(0, size.z));
+		}
+	}
+	
+	public bool ContainsCoordinates (IntVector2 coordinate) {
+		return coordinate.x >= 0 && coordinate.x < size.x && coordinate.z >= 0 && coordinate.z < size.z;
+	}
+
+	public FloorCell GetCell (IntVector2 coordinates) {
+		return cells[coordinates.x, coordinates.z];
+	}
 
 }

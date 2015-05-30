@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\DownStairTrigger.cs" />
      <Compile Include="Assets\Scripts\Floor.cs" />
      <Compile Include="Assets\Scripts\FloorCell.cs" />
+     <Compile Include="Assets\Scripts\FloorDirection.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\IntVector2.cs" />
      <Compile Include="Assets\Scripts\LevelText.cs" />
