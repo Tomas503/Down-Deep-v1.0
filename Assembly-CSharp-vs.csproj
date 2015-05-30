@@ -64,6 +64,7 @@
      <Compile Include="Assets\Scripts\MouseLook.cs" />
      <Compile Include="Assets\Scripts\PlatformInputController.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Scripts\RunAndCrouch.cs" />
      <Compile Include="Assets\Scripts\UpStairTrigger.cs" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>/Users/BoredEagle/Desktop/Unity Projects/Down Deep v1.0/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
