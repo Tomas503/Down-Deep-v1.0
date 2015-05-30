@@ -42,4 +42,16 @@ public static class FloorDirections {
 	public static FloorDirection GetOpposite (this FloorDirection direction) {
 		return opposites[(int)direction];
 	}
+
+	private static Quaternion[] rotations = {
+		Quaternion.identity,
+		Quaternion.Euler(0f, 90f, 0f),
+		Quaternion.Euler(0f, 180f, 0f),
+		Quaternion.Euler(0f, 270f, 0f)
+	};
+	
+	public static Quaternion ToRotation (this FloorDirection direction) {
+		return rotations[(int)direction];
+	}
+
 }
