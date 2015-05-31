@@ -13,4 +13,10 @@ public class FloorRoom : ScriptableObject {
 		cell.room = this;
 		cells.Add(cell);
 	}
+
+	public void Assimilate (FloorRoom room) {
+		for (int i = 0; i < room.cells.Count; i++) {
+			Add(room.cells[i]);
+		}
+	}
 }

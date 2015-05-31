@@ -82,7 +82,7 @@ public class Floor : MonoBehaviour {
 								CreatePassage (currentCell, neighbor, direction);
 								activeCells.Add (neighbor);
 						}
-						else if (currentCell.room == neighbor.room) {
+						else if (currentCell.room.settingsIndex == neighbor.room.settingsIndex) {
 								CreatePassageInSameRoom(currentCell, neighbor, direction);
 						} 
 						else {
@@ -100,6 +100,12 @@ public class Floor : MonoBehaviour {
 		passage.Initialize(cell, otherCell, direction);
 		passage = Instantiate(passagePrefab) as FloorPassage;
 		passage.Initialize(otherCell, cell, direction.GetOpposite());
+		if (cell.room != otherCell.room) {
+			FloorRoom roomToAssimilate = otherCell.room;
+			cell.room.Assimilate(roomToAssimilate);
+			rooms.Remove(roomToAssimilate);
+			Destroy(roomToAssimilate);
+		}
 	}
 
 
