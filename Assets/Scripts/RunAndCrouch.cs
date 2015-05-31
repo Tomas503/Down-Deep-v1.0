@@ -36,7 +36,6 @@ public class RunAndCrouch : MonoBehaviour
 		{ // press C to crouch
 			vScale = 0.5f;
 			speed = crchSpeed; // slow down when crouching
-			Debug.Log("speed=" +speed);
 		}
 		
 		chMotor.movement.maxForwardSpeed = speed; // set max speed

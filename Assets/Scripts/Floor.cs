@@ -81,7 +81,11 @@ public class Floor : MonoBehaviour {
 								neighbor = CreateCell (coordinates);
 								CreatePassage (currentCell, neighbor, direction);
 								activeCells.Add (neighbor);
-						} else {
+						}
+						else if (currentCell.room == neighbor.room) {
+								CreatePassageInSameRoom(currentCell, neighbor, direction);
+						} 
+						else {
 								CreateWall (currentCell, neighbor, direction);
 						}
 				} 
@@ -90,6 +94,13 @@ public class Floor : MonoBehaviour {
 						
 				}
 		}
+
+	private void CreatePassageInSameRoom (FloorCell cell, FloorCell otherCell, FloorDirection direction) {
+		FloorPassage passage = Instantiate(passagePrefab) as FloorPassage;
+		passage.Initialize(cell, otherCell, direction);
+		passage = Instantiate(passagePrefab) as FloorPassage;
+		passage.Initialize(otherCell, cell, direction.GetOpposite());
+	}
 
 
 	private FloorCell CreateCell (IntVector2 coordinates) {
