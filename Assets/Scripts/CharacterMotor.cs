@@ -29,9 +29,9 @@ public class CharacterMotor : MonoBehaviour
     public class CharacterMotorMovement
     {
         // The maximum horizontal speed when moving
-        public float maxForwardSpeed = 20.0f;//was 3.0
-        public float maxSidewaysSpeed = 1.0f;//was 2.0
-        public float maxBackwardsSpeed = 10.0f;//was 2.0
+        public float maxForwardSpeed = 3.0f;//was 3.0
+        public float maxSidewaysSpeed = 2.0f;//was 2.0
+        public float maxBackwardsSpeed = 2.0f;//was 2.0
 
         // Curve for multiplying speed based on slope(negative = downwards)
         public AnimationCurve slopeSpeedMultiplier = new AnimationCurve(new Keyframe(-90, 1), new Keyframe(0, 1), new Keyframe(90, 0));
@@ -637,7 +637,7 @@ public class CharacterMotor : MonoBehaviour
             return 0;
         else
         {
-            float zAxisEllipseMultiplier = (desiredMovementDirection.z > 0 ? movement.maxForwardSpeed : movement.maxBackwardsSpeed) / movement.maxSidewaysSpeed;
+			float zAxisEllipseMultiplier = (desiredMovementDirection.z > 0 ? movement.maxForwardSpeed : movement.maxBackwardsSpeed) / movement.maxSidewaysSpeed;
             Vector3 temp = new Vector3(desiredMovementDirection.x, 0, desiredMovementDirection.z / zAxisEllipseMultiplier).normalized;
             float length = new Vector3(temp.x, 0, temp.z * zAxisEllipseMultiplier).magnitude * movement.maxSidewaysSpeed;
             return length;
