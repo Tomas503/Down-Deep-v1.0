@@ -58,14 +58,18 @@ public class GameController : MonoBehaviour {
 		floorInstance.Generate ();
 		//Color col = Random.Range (0, 2) == 1 ? Color.black : Color.white;
 		//floorInstance.GetComponent<MeshRenderer>().material.color = col;
+		}
 
 
+	private Vector3 tempPlayerShift;
 
-	}
-	
 	void MakePlayer(){
 		playerInstance = Instantiate(playerPrefab) as Player;
-		playerLocation = playerInstance.transform;
+		//playerLocation = playerInstance.transform;
+		playerInstance.SetLocation(floorInstance.GetCell(floorInstance.RandomCoordinates));
+		tempPlayerShift = playerInstance.transform.position;
+		tempPlayerShift.y = 1.5f;
+		playerInstance.transform.position = tempPlayerShift;
 		}
 
 	void DestroyFloor(){
