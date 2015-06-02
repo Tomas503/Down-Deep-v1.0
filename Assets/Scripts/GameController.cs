@@ -43,6 +43,7 @@ public class GameController : MonoBehaviour {
 	void BeginGame(){
 		curentLevel = 0;
 		lastLevel = 0;
+		Camera.main.rect = new Rect(0f, 0f, 0.16f, 0.3f);
 		MakeFloor ();
 		MakePlayer ();
 	}
