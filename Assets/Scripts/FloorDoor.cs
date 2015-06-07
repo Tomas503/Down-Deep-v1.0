@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 
 public class FloorDoor : FloorPassage {
 
 	public Transform hinge;
+
 
 
 	private FloorDoor OtherSideOfDoor {
