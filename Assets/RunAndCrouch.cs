@@ -29,7 +29,7 @@ public class RunAndCrouch : MonoBehaviour
 		if ((Input.GetKey("left shift") || Input.GetKey("right shift")) && chMotor.grounded)
 		{
 			speed = runSpeed; 
-
+			
 		}
 		
 		if (Input.GetKey("c"))
