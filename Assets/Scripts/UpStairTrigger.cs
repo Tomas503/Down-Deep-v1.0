@@ -17,6 +17,7 @@ public class UpStairTrigger : MonoBehaviour {
 		if (target.tag == "Player") {
 			Destroy(gameObject);
 			GameController.destroyThings = true;
+			GameController.wentUp = true;
 			GameController.curentLevel--;
 		}
 		

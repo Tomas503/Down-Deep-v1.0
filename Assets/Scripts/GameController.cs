@@ -14,6 +14,11 @@ public class GameController : MonoBehaviour {
 	public static int curentLevel;
 	public static int lastLevel;
 	public static Transform playerLocation;
+	//[System.NonSerialized}
+	 public static bool wentDown;
+	 
+	 //[System.NonSerialized}
+	 public static bool wentUp;
 	// Use this for initialization
 	void Start () {
 

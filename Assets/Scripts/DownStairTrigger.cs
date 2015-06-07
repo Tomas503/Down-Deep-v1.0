@@ -17,8 +17,16 @@ public class DownStairTrigger : MonoBehaviour {
 		if (target.tag == "Player") {
 			Destroy(gameObject);
 			GameController.destroyThings = true;
+			GameController.wentDown = true;
 			GameController.curentLevel++;
 				}
 
 		}
+
+	private FloorCell currentCell;
+	
+	public void GetLocation (FloorCell cell) {
+		currentCell = cell;
+		transform.localPosition = cell.transform.localPosition;
+	}
 }

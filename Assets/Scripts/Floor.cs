@@ -26,17 +26,19 @@ public class Floor : MonoBehaviour {
 	[Range(0f, 1f)]
 	public float doorProbability;
 
+
+
 	// Use this for initialization
 	void Start () {
 
 		GetPlayerPositions ();
 		if (GameController.curentLevel == 0) {
 
-			MakeDownStair ();
+			MakeDownStair (RandomCoordinates);
 			}
 		if (GameController.curentLevel > 0) {
-			MakeUpStair ();
-			MakeDownStair ();
+			MakeUpStair (RandomCoordinates);
+			MakeDownStair (RandomCoordinates);
 
 			}
 	
@@ -107,7 +109,7 @@ public class Floor : MonoBehaviour {
 			Destroy(roomToAssimilate);
 		}
 	}
-
+	
 
 	private FloorCell CreateCell (IntVector2 coordinates) {
 		FloorCell newCell = Instantiate(cellPrefab) as FloorCell;
@@ -115,20 +117,37 @@ public class Floor : MonoBehaviour {
 		newCell.coordinates = coordinates;
 		newCell.name = "Floor Cell " + coordinates.x + ", " + coordinates.z;
 		newCell.transform.parent = transform;
-		newCell.transform.localPosition = new Vector3(coordinates.x - size.x * 0.5f + 0.5f, 0f, coordinates.z - size.z * 0.5f + 0.5f);
+		newCell.transform.localPosition = new Vector3(coordinates.x - size.x * 0.5f + 0f, 0f, coordinates.z - size.z * 0.5f + 0.5f);
 		return newCell;
 	}
 
-	void MakeDownStair(){
+	//public Vector3 tempStairShift;
+
+
+	void MakeDownStair(IntVector2 stairCoordinates){
 		downStairTriggerInstance = Instantiate(downStairTriggerPrefab)as DownStairTrigger;
-		downStairTriggerInstance.transform.Translate(aheadOfPlayer);
+		if (GameController.wentUp == true) {
+			downStairTriggerInstance.transform.Translate (behindPlayer);
+			GameController.wentUp = false;
+		}
+		else {
+			downStairTriggerInstance.transform.localPosition = new Vector3((stairCoordinates.x - size.x * 0.5f + 1.5f)*4f, 0f, (stairCoordinates.z - size.z * 0.5f + 1.5f)*4f);
+				}
 		downStairTriggerInstance.transform.parent = gameObject.transform;
 	}
 
-	void MakeUpStair(){
+	//private Vector3 upStairLocation;
+
+	void MakeUpStair(IntVector2 stairCoordinates){
 		upStairTriggerInstance = Instantiate(upStairTriggerPrefab)as UpStairTrigger;
-		//upStairTriggerInstance.transform.Translate(0,0,-forwardDistance);
-		upStairTriggerInstance.transform.Translate(behindPlayer);
+		if (GameController.wentDown == true) {
+			upStairTriggerInstance.transform.Translate (behindPlayer);
+			GameController.wentDown = false;
+		}
+		else {
+			upStairTriggerInstance.transform.localPosition = new Vector3((stairCoordinates.x - size.x * 0.5f + 1.5f)*4f, 0f, (stairCoordinates.z - size.z * 0.5f + 1.5f)*4f);
+			
+				}
 		upStairTriggerInstance.transform.parent = gameObject.transform;
 
 	}
