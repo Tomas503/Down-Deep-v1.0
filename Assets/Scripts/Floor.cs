@@ -153,8 +153,8 @@ public class Floor : MonoBehaviour {
 	}
 	void GetPlayerPositions(){
 		GameObject player = GameObject.FindGameObjectWithTag ("Player");
-		behindPlayer = (player.transform.position - player.transform.forward * 5.0f);
-		aheadOfPlayer = (player.transform.position + player.transform.forward * 5.0f);
+		behindPlayer = (player.transform.position - player.transform.forward * 3.0f);
+		aheadOfPlayer = (player.transform.position + player.transform.forward * 3.0f);
 		}
 
 	public IntVector2 RandomCoordinates {
