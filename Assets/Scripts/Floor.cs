@@ -117,11 +117,11 @@ public class Floor : MonoBehaviour {
 		newCell.coordinates = coordinates;
 		newCell.name = "Floor Cell " + coordinates.x + ", " + coordinates.z;
 		newCell.transform.parent = transform;
-		newCell.transform.localPosition = new Vector3(coordinates.x - size.x * 0.5f + 0.5f, 0f, coordinates.z - size.z * 0.5f + 0.5f);
+		newCell.transform.localPosition = new Vector3(coordinates.x - size.x * 0.5f + 0f, 0f, coordinates.z - size.z * 0.5f + 0.5f);
 		return newCell;
 	}
 
-
+	//public Vector3 tempStairShift;
 
 
 	void MakeDownStair(IntVector2 stairCoordinates){
@@ -131,11 +131,12 @@ public class Floor : MonoBehaviour {
 			GameController.wentUp = false;
 		}
 		else {
-			downStairTriggerInstance.transform.localPosition = new Vector3((stairCoordinates.x - size.x * 0.5f + 0.5f)*4f, 0f, (stairCoordinates.z - size.z * 0.5f + 0.5f)*4f);
+			downStairTriggerInstance.transform.localPosition = new Vector3((stairCoordinates.x - size.x * 0.5f + 1.5f)*4f, 0f, (stairCoordinates.z - size.z * 0.5f + 1.5f)*4f);
 				}
 		downStairTriggerInstance.transform.parent = gameObject.transform;
 	}
-	
+
+	//private Vector3 upStairLocation;
 
 	void MakeUpStair(IntVector2 stairCoordinates){
 		upStairTriggerInstance = Instantiate(upStairTriggerPrefab)as UpStairTrigger;
@@ -144,7 +145,7 @@ public class Floor : MonoBehaviour {
 			GameController.wentDown = false;
 		}
 		else {
-			upStairTriggerInstance.transform.localPosition = new Vector3((stairCoordinates.x - size.x * 0.5f + 0.5f)*4f, 0f, (stairCoordinates.z - size.z * 0.5f + 0.5f)*4f);
+			upStairTriggerInstance.transform.localPosition = new Vector3((stairCoordinates.x - size.x * 0.5f + 1.5f)*4f, 0f, (stairCoordinates.z - size.z * 0.5f + 1.5f)*4f);
 			
 				}
 		upStairTriggerInstance.transform.parent = gameObject.transform;
