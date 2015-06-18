@@ -29,4 +29,12 @@ public class FloorDoor : FloorPassage {
 						}
 				}
 		}
+
+	public override void OnPlayerEntered () {
+		OtherSideOfDoor.hinge.localRotation = hinge.localRotation = Quaternion.Euler(0f, -90f, 0f);
+	}
+	
+	public override void OnPlayerExited () {
+		OtherSideOfDoor.hinge.localRotation = hinge.localRotation = Quaternion.identity;
+	}
 }

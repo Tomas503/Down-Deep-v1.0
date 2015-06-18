@@ -46,10 +46,11 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\RunAndCrouch.cs" />
+     <Compile Include="Assets\MainCamera.cs" />
      <Compile Include="Assets\Scripts\CharacterMotor.cs" />
      <Compile Include="Assets\Scripts\DownStairTrigger.cs" />
      <Compile Include="Assets\Scripts\FPSInputController.cs" />
+     <Compile Include="Assets\Scripts\FPSWalkerEnhanced.cs" />
      <Compile Include="Assets\Scripts\Floor.cs" />
      <Compile Include="Assets\Scripts\FloorCell.cs" />
      <Compile Include="Assets\Scripts\FloorCellEdge.cs" />
@@ -65,6 +66,7 @@
      <Compile Include="Assets\Scripts\MouseLook.cs" />
      <Compile Include="Assets\Scripts\PlatformInputController.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Scripts\RunAndCrouch.cs" />
      <Compile Include="Assets\Scripts\UpStairTrigger.cs" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>/Users/BoredEagle/Desktop/Unity Projects/Down Deep v1.0/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>

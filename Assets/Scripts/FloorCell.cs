@@ -18,6 +18,18 @@ public class FloorCell : MonoBehaviour {
 			return initializedEdgeCount == FloorDirections.Count;
 		}
 	}
+
+	public void OnPlayerEntered () {
+		for (int i = 0; i < edges.Length; i++) {
+			edges[i].OnPlayerEntered();
+		}
+	}
+	
+	public void OnPlayerExited () {
+		for (int i = 0; i < edges.Length; i++) {
+			edges[i].OnPlayerExited();
+		}
+	}
 	
 	public void SetEdge (FloorDirection direction, FloorCellEdge edge) {
 		edges[(int)direction] = edge;
