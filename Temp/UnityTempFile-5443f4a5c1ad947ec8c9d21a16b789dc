@@ -44,6 +44,7 @@
 -define:UNITY_EDITOR
 -define:UNITY_EDITOR_OSX
 'Assets/Scripts/CharacterMotor.cs'
+'Assets/Scripts/Controller.cs'
 'Assets/Scripts/DownStairTrigger.cs'
 'Assets/Scripts/FPSInputController.cs'
 'Assets/Scripts/FPSWalkerEnhanced.cs'
@@ -57,7 +58,9 @@
 'Assets/Scripts/FloorRoomSettings.cs'
 'Assets/Scripts/FloorWall.cs'
 'Assets/Scripts/GameController.cs'
+'Assets/Scripts/Hinge.cs'
 'Assets/Scripts/IntVector2.cs'
+'Assets/Scripts/InteractiveObject.cs'
 'Assets/Scripts/LevelText.cs'
 'Assets/Scripts/MainCamera.cs'
 'Assets/Scripts/MouseLook.cs'

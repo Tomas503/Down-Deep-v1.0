@@ -30,17 +30,23 @@ public class GameController : MonoBehaviour {
 	void Update () {
 
 		if (Input.GetMouseButton (0)) {
-
+			
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-			RaycastHit rayCastHit;
-
-			if(Physics.Raycast(ray.origin, ray.direction, out rayCastHit, Mathf.Infinity)){
-
-				Debug.Log("Mouse Click");
-
+			RaycastHit hit;
+			Debug.Log ("Mouse Clicked");
+			
+			
+			if(Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity)){
+				
+				Hinge obj = hit.collider.GetComponent<Hinge>();
+				if(obj){
+					Debug.Log ("Mouse on Door knob");
+					obj.TriggerInteraction();
+				}
+				
 			}
-
-		}
+			
+		} 
 
 
 		if (Input.GetKeyDown (KeyCode.Escape)) {

@@ -61,7 +61,9 @@
      <Compile Include="Assets\Scripts\FloorRoomSettings.cs" />
      <Compile Include="Assets\Scripts\FloorWall.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
+     <Compile Include="Assets\Scripts\Hinge.cs" />
      <Compile Include="Assets\Scripts\IntVector2.cs" />
+     <Compile Include="Assets\Scripts\InteractiveObject.cs" />
      <Compile Include="Assets\Scripts\LevelText.cs" />
      <Compile Include="Assets\Scripts\MainCamera.cs" />
      <Compile Include="Assets\Scripts\MouseLook.cs" />
